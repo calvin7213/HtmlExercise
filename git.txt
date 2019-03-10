@@ -1,0 +1,75 @@
+cd
+git clone 網址 把東西複製下來
+ls     list
+ls -al 顯示包含隱藏檔案
+cd     拉位置資料夾進去 直接顯示路徑
+pwd    目前位置
+clear
+git init   給git接管  第一個為master為一分支名稱
+git status 顯示狀態
+ touch index.html 建一個html檔   touch style.css app.js 建兩個檔案
+git add 檔名 把檔案交給git控管  進到洗衣桶(暫存區)
+git commit -m "addindex.html" 將檔案送至洗衣店並用m加訊息
+git log 可以看送到洗衣店的順序
+
+touch .bashrc  打開.bashrc 輸入指令 alias g="git "    表示告訴電腦打單一個g時代表git
+touch .bashrc  打開.bashrc 輸入指令  alias li="ls -a" 表示告訴電腦打li時代表ls -a
+source ~/bashrc
+g remote -v 查看連結
+在git開新資料夾
+git remote add origin https://github.com/calvin7213/git-demo2.git 連結
+再查看g remote -v有沒有連結了
+不小心加錯可以用
+g remote remove origin 清掉
+
+g push origin master把檔案推上去(推上去之前要先 add commit否則會失敗)
+
+g push -u origin master    (加-f硬推上去不一致的檔案會被砍掉)
+
+g pull拉回來(要先用-u連結)
+
+g branch develop 建新分支叫develop
+
+g branch 查看現在的分支位置
+
+g checkout devlop 跳到這個分支
+
+source ~/.bashrc應用新的指令
+
+g branch -D xxx 砍某個分支
+
+g merge xxx 合併另一分支資料
+
+共同編輯時須先將檔案更新 g pull 至最新再 g push -u origin master
+
+vim aa.txt 新增檔案
+進去後按i輸入
+存檔並跳出 :x!
+
+vim ~/.gitconfig 設定指令
+
+g commit --amend 修改上一個訊息
+g rebase -i 回到glo的位置 進去可以修改想刪除的人生 前面可以改d  可以按dd剪下 p貼上修改位置
+
+g cherry-pick XXX  可以撿別的人生的片段到自己這邊
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PPT
+https://www.emaze.com/@AOLTTOLOQ/git-lecture
