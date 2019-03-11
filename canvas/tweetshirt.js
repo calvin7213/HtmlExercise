@@ -8,14 +8,20 @@ window.onload = function () {
     //     alert("sorry no canvas API support");
     // }
 
-    window.onload = function(){
+ 
         var button = document.getElementById("previewButton");
         button.onclick = previewHandler;
+        
+ 
     }
 
+
+
     function previewHandler(){
+        
         var canvas = document.getElementById("tshirtCanvas");
-        var context = convas.getContext("2d");
+        var context = canvas.getContext("2d");
+        fillBackgroundColor(canvas, context);
 
         var selectObj = document.getElementById("shape");
         var index = selectObj.selectedIndex;
@@ -24,7 +30,26 @@ window.onload = function () {
         if(shape == "squares"){
             for (var squares = 0;squares < 20; squares++){
                 drawSquare(canvas, context)
+                
             }
         }
+       
     }
-}
+
+    function drawSquare(canvas, context){
+        var w = Math.floor(Math.random()*40);
+        var x = Math.floor(Math.random()*canvas.width);
+        var y = Math.floor(Math.random()*canvas.height);
+
+        context.fillStyle = "lightblue";
+        context.fillRect(x, y, w, w);
+        
+    }
+
+    function fillBackgroundColor(canvas, context){
+        var selectObj = document.getElementById("backgroundColor");
+        var index = selectObj.selectedIndex;
+        var bgColor = selectObj.options[index].value;
+        context.fillStyle = bgColor;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+    }
