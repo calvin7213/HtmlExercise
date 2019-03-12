@@ -53,6 +53,8 @@ g rebase -i 回到glo的位置 進去可以修改想刪除的人生 前面可以改d  可以按dd剪下 p貼
 
 g cherry-pick XXX  可以撿別的人生的片段到自己這邊
 
+git reset --mixed  清除add
+
 
 
 
