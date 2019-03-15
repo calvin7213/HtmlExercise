@@ -1,16 +1,27 @@
 window.onload = init;
 
-function init(){
-    for(var i = 0; i <localStorage.length; i++){
+function init() {
+    var button = document.getElementById("add_button");
+    button.onclick = createSticky;
+
+    var stickiesArray = localStorage["stickiesArray"];
+    if (!stickiesArray) {
+        stickiesArray = [];
+        localStorage.setItem("stickiesArray", JSON.stringify(stickiesArray));
+    } else {
+        stickiesArray = JSON.parse(stickiesArray);
+    }
+
+    for (var i = 0; i < localStorage.length; i++) {
         var key = localStorage.key(i);
-        if(key.substring(0, 6) == "sticky"){
+        if (key.substring(0, 6) == "sticky") {
             var value = localStorage.getItem(key);
             addStickyToDOM(value);
         }
     }
 }
 
-function addStickyToDOM(value){
+function addStickyToDOM(value) {
     var stickies = document.getElementById("stickies");
     var sticky = document.createElement("li");
     var span = document.createElement("span");
@@ -18,4 +29,12 @@ function addStickyToDOM(value){
     span.innerHTML = value;
     sticky.appendChild(span);
     stickies.appendChild(sticky);
+}
+
+function createSticky() {
+    var value = document.getElementById("note_text").value;
+    var key = "sticky" + localStorage.length;
+    localStorage.setItem(key, value);
+
+    addStickyToDOM(value);
 }
