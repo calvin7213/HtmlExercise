@@ -50,3 +50,31 @@ function addStickyToDOM(value) {
     document.getElementById("note_text").value="";
 }
 
+function deleteSticky(key){
+    localStorage.removeItem(key);
+    var stickiesArray = getStickiesArray();
+    if(stickiesArray){
+        for(var i = 0; i<stickiesArray.length;i++){
+            if(key ==stickiesArray[i]){
+              stickiesArray.splice(i,1);
+            }
+        }
+        localStorage.setItem("stickiesArray", JSON.stringify(stickiesArray));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
